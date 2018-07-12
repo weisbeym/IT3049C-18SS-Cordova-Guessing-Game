@@ -113,11 +113,22 @@ h1 {
 }
 
 button {
-    top: 50%;
+    top: 50% !important; 
     margin: auto;
     padding: 10px;
     width: 100px;
     height: 35px;
+    color: #A7A7A7;
+    background-color: black;
+    border: 0;
+    /*background: none; */
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+#reset {
+    position: relative;
+    top: 50%;
 }
 
 
