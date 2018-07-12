@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "edu.uc.weisbeym.game"
+    },
+    "cordova-plugin-velda-devicefeedback": {
+      "PACKAGE_NAME": "edu.uc.weisbeym.game"
     }
   },
   "dependent_plugins": {}

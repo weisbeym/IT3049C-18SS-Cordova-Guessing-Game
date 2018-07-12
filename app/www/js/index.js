@@ -29,6 +29,9 @@ guess.addEventListener("submit", function(event){
     // prevent reload 
     event.preventDefault();
 
+    // this makes sure that even if the guess is right it at least returns 1
+    count++;
+
     // get the inputted value
     const inputVal = input.value;
 
@@ -36,9 +39,15 @@ guess.addEventListener("submit", function(event){
     // if they are right, tell them they won and in how many turns plus display the reset
     if(inputVal != rand) {
         alert("Wrong! try again :)");
-        count++;
+        DF = window.plugins.deviceFeedback; // plugin makes the device vibrate if they are wrong
+        DF.haptic(DF.VIRTUAL_KEY) ;
+        // clears form
+        guess.reset();
     } else if(inputVal == rand) {
-        alert(`you Won! It only took ${count} turns.`);
+        alert(`you Won! It only took ${count} turn(s).`);
+        window.plugins.deviceFeedback.acoustic();// plugin ring if the guess is right
+        // clears form
+        guess.reset();
         reset.classList.remove("hidden");
     }
 
