@@ -57,6 +57,22 @@ resetButton.addEventListener("click", () => {
     reset.classList.add("hidden");
     init();
 });
+
+// from the plugin docs, it checks to make sure the user gave permission for the vibration and ring
+window.plugins.deviceFeedback.isFeedbackEnabled(function(feedback) {
+    if(feedback.haptic && feedback.acoustic) {
+        alert("Both haptic and acoustic feedback are enabled by user.");
+    }
+    else if(feedback.haptic) {
+        alert("Haptic feedback is enabled, but acoustic not.");
+    }
+    else if(feedback.acoustic) {
+        alert("Haptic feedback is disabled, nevertheless acoustic is enabled.");
+    }
+	else {
+        alert("Neither haptic feedback is enabled nor acoustic.")
+    }
+});
         
 // initiat the app 
 document.addEventListener("deviceready", init);
